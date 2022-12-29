@@ -1,12 +1,13 @@
 const users = require('../model/sequelize');
 const { Router } = require("express");
 const jwt = require("jsonwebtoken");
-const passport = require("../authentification");
+const passport = require("../auth/auth");
 
 const router = Router();
 
-router.post('/Login', async (req, res, next) => {    
-    passport.authenticate( 'login', async (err, user, info) => {
+
+router.post('/Login', (req, res, next) => {    
+    passport.authenticate( 'Login', async (err, user, info) => {
             try {
                 if (err || !user){
                     const error = new Error('An error occurred.');
@@ -25,8 +26,7 @@ router.post('/Login', async (req, res, next) => {
             } catch (error) {
                 return next(error);
             }
-        }
-        )(req, res, next);
+        })(req, res, next);
 }
 );
 

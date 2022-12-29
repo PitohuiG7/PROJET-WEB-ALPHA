@@ -1,24 +1,22 @@
-const sequelize = require('./model/sequelize');
+const sequelize = require('../model/sequelize');
 const passport = require('passport');
 const { ExtractJwt } = require("passport-jwt");
-var localStrategy = require('passport-local').Strategy;
+const localStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 
 passport.use(
-    'login', 
-    new localStrategy({
+    'Login', new localStrategy({
         usernameField: 'pseudo',
-        passwordField: 'password'
-    }, 
+        passwordField: 'password'},
     async(pseudo, password, done) => {
         try {
-            const user = users.findOne({where: {pseudo: pseudo,password:password}})
+            const user = users.findOne({where: {pseudo: pseudo, password:password}});
             if(!user){
                 return done(null,false, {message: "Bad credential/ Incorrect User"});
             }
             return done(null, user, {message: "Logged in Successfully"});
         }catch(error) {
-            done(error);
+            return done(error);
         }
     }
     )

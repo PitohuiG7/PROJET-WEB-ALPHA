@@ -1,9 +1,18 @@
-const express =require('express')
+const express =require('express');
 const sequelize = require('./model/sequelize');
-
+const bodyParser = require('body-parser');
 const passport = require('passport');
-
-
-
+require("dotenv").config();
+require("./auth/passport");
 const app = express();
-app.listen(3000);
+
+
+
+app.use(bodyParser.urlencoded ({ extended : false}));
+app.use(bodyParser.json());
+
+app.use('/',require('./routes/login'));
+
+app.use('/',require('./secure-routes/profil'));
+
+app.listen(3000, () => { console.log('Server started')});
