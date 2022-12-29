@@ -52,7 +52,12 @@ const sequelize = new Sequelize(
  	isAdmin:{
  		type:DataTypes.TINYINT,
   
- 	}
+ 	},
+
+  photoProfil : {
+    type : DataTypes.STRING(100),
+    allowNull : true,
+  }
  })
 
  sequelize.sync().then(()=>{
