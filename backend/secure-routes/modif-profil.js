@@ -4,7 +4,7 @@ const passport = require("passport");
 const router = express.Router();
 
 
-router.put('/modification',passport.authenticate("jwt", { session: false }),async(req,res)=>{
+router.put('/modification-profil',passport.authenticate("jwt", { session: false }),async(req,res)=>{
 
 	//je recupere l'id de l'utilisateur qui modifie
 	const id = req.body.id;

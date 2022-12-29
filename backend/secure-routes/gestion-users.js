@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 //banning
-router.post('/users/ban', async(req,res)=> { 
+router.post('/users/ban',passport.authenticate("jwt", { session: false }), async(req,res)=> { 
     //les parametres de ma requete
     const {pseudoAdmin, pseudoBan} = req.body;
 
@@ -13,7 +13,7 @@ router.post('/users/ban', async(req,res)=> {
     const testExist = await users.findOne({ where: {pseudo: pseudoAdmin, isAdmin : 1} });
 
     if(testExist){
-        //je ban l'utilisateur
+        //je bannie l'utilisateur
         const banUser = await users.update(
             {
               isBan: true
@@ -28,7 +28,7 @@ router.post('/users/ban', async(req,res)=> {
 })
 
 //unbanning
-router.post('/users/unban', async(req,res)=> { 
+router.post('/users/unban', passport.authenticate("jwt", { session: false }),async(req,res)=> { 
     //les parametres de ma requete
     const {pseudoAdmin, pseudoBan} = req.body;
 
@@ -52,7 +52,7 @@ router.post('/users/unban', async(req,res)=> {
 
 
 //promoting to admin
-router.post('/users/promote', async(req,res)=> { 
+router.post('/users/promote', passport.authenticate("jwt", { session: false }),async(req,res)=> { 
     //les parametres de ma requete
     const {pseudoAdmin, pseudoBan} = req.body;
     //je verifie toujours si l'utilisateur existe ou pas et si il est admin
@@ -61,7 +61,7 @@ router.post('/users/promote', async(req,res)=> {
     if(testExist){
         const promoteUser = await users.update(
             {
-              isAdmin: true
+              isAdmin: 1
             },
             {
               where: { pseudo : pseudoBan },
@@ -74,7 +74,7 @@ router.post('/users/promote', async(req,res)=> {
 
 
 //unpromoting
-router.post('/users/unpromote', async(req,res)=> { 
+router.post('/users/unpromote', passport.authenticate("jwt", { session: false }),async(req,res)=> { 
     //les parametres de ma requete
     const {pseudoAdmin, pseudoBan} = req.body;
     //je verifie toujours si l'utilisateur existe ou pas et si il est admin
@@ -83,7 +83,7 @@ router.post('/users/unpromote', async(req,res)=> {
     if(testExist){
         const unbanUser = await users.update(
             {
-              isAdmin: false
+              isAdmin: 0
             },
             {
               where: { pseudo : pseudoBan },
