@@ -15,6 +15,20 @@ router.post("/login", async (req, res) => {
       console.log("Error: ", err);
     }
   );
+
+  //je verifie si l'utilisateur est ban
+  const isUserBan = await users.findOne({ where: { isBan : true } }).catch(
+    (err) => {
+      console.log("Error: ", err);
+    }
+  )
+
+
+  //si isBan = true
+  if (isUserBan) 
+    return res
+      .status(400)
+      .json ({message : "Vous etes banni ! Vous n'avez pas le droit de vous connecter."});
   
 
   if (!userWithEmail)

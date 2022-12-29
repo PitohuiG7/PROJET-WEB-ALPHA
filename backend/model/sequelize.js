@@ -4,7 +4,7 @@ const {Sequelize,DataTypes} = require("sequelize");
 const sequelize = new Sequelize(
     'progwebserveur',
     'root',
-    '',
+    'root',
     {
     	host:'localhost',
     	dialect:'mysql'
@@ -57,6 +57,12 @@ const sequelize = new Sequelize(
   photoProfil : {
     type : DataTypes.STRING(100),
     allowNull : true,
+  },
+
+  isBan : {
+    type : DataTypes.BOOLEAN,
+	defaultValue : false,
+    allowNull : false,
   }
  })
 
