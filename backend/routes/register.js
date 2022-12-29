@@ -13,6 +13,8 @@ router.post('/register', async(req,res)=>{
 	//J'utilise la fonction findOne pour verifier si l'utilisateur existe déja dans ma base de données
 	const testExist = await users.findOne({ where: {email : email,pseudo : pseudo} })
 
+
+// si l'utilisateur n'existe pas 
 	if (!testExist)
 	{
 	try {

@@ -1,3 +1,5 @@
+/* declaration du service express, de passport pour l'authentification
+ et sequelize pour ma base de données*/
 const express = require('express');
 const users = require('../model/sequelize');
 const passport = require("passport");
@@ -21,4 +23,4 @@ const leProfil = await users.findOne({attributes: ['email', 'pseudo','name','las
 
 
 })
-module.exports = router;
+module.exports = router; //pour pouvoir utiliser mes routes dans app.js
