@@ -18,7 +18,7 @@ const sequelize = new Sequelize(
 	console.log('Unable to connect to the database: ',error);
 });
 
-//création de ma table dans ma base de données
+//création de ma table users dans ma base de données
  const users = sequelize.define('users',{
  	idUSer:{
  		type: DataTypes.INTEGER,
