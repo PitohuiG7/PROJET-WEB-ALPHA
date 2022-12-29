@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/profil', passport.authenticate("jwt", { session: false }),async(req,res)=>{
 
 	//Les parametres de ma requete
-	 pseudo = req.query.pseudo;
+	 pseudo = req.params.pseudo;
 
     console.log(pseudo);
 
