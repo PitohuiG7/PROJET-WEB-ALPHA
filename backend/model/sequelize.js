@@ -4,7 +4,7 @@ const {Sequelize,DataTypes} = require("sequelize");
 const sequelize = new Sequelize(
     'progwebserveur',
     'root',
-    'root',
+    '',
     {
     	host:'localhost',
     	dialect:'mysql'
