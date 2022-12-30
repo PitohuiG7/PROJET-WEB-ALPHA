@@ -2,15 +2,12 @@ const {Sequelize,DataTypes} = require("sequelize");
 
 //definition des informations sur ma base de données
 const sequelize = new Sequelize(
-    'projetrainbowsixesl',
+    'progwebserveur',
     'root',
-    'root',
+    '',
     {
     	host:'localhost',
-    	dialect:'mysql',
-			define: {
-        timestamps: false
-    }
+    	dialect:'mysql'
     }
 	);
 //verification de la connexion avec la base de données
@@ -55,63 +52,19 @@ const sequelize = new Sequelize(
  	isAdmin:{
  		type:DataTypes.TINYINT,
   
- 	}
+ 	},
+
+  photoProfil : {
+    type : DataTypes.STRING(100),
+    allowNull : true,
+  },
+
+  isBan : {
+    type : DataTypes.BOOLEAN,
+	defaultValue : false,
+    allowNull : false,
+  }
  })
-
- const operateur = sequelize.define('operateur',{
-	ID:{
-		type: DataTypes.INTEGER,
-		 autoIncrement:true,
-		 primaryKey:true,
-		 allowNull:false,
-	},
-	Nom:{
-		type : DataTypes.STRING(45),
-		allowNull:false
-	},
-	Atk_Def:{
-		type : DataTypes.BOOLEAN,
-		allowNull:false
-	},
-	Competence:{
-		type: DataTypes.INTEGER,
-		allowNull:false,
-		
-	},
-	Description:{
-		type : DataTypes.STRING(2000),
-		allowNull:false,
-	},
-	Pays:{
-		type: DataTypes.INTEGER,
-		allowNull:false,
-	},
-	Protection:{
-		type: DataTypes.INTEGER,
-		allowNull:false,
-	},
-	Vitesse:{
-		type: DataTypes.INTEGER,
-		allowNull:false,
-	},
-	Gadget:{
-		type: DataTypes.INTEGER,
-		allowNull:false,
-	},
-	OpPhoto:{
-		type : DataTypes.STRING(200),
- 
-	},
-	OpLogo:{
-		type : DataTypes.STRING(200),
- 
-	},
-	Armes:{
-		type : DataTypes.STRING(200),
-	}
-})
-
-
 
  sequelize.sync().then(()=>{
  	console.log('Users table created successfully');
