@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 const express = require('express')
 const operateur = require('./model/sequelize');
 
@@ -35,6 +36,8 @@ app.get('/hello', async (req, res) => {
 
 app.listen(3000);
 =======
+=======
+>>>>>>> cd577777b80b883112a63d5bde35e56ba39c6362
 const express = require('express');
 const sequelize = require('./model/sequelize');
 const bodyParser = require('body-parser');
@@ -65,5 +68,9 @@ app.use('/',require('./secure-routes/gestion-users'));
 
 
 //le port de notre service est 3000
+<<<<<<< HEAD
 app.listen(3000, () => { console.log('Server started')});
 >>>>>>> 694fc29adb7e43c473e7bef14a09edb1279f830c
+=======
+app.listen(3000, () => { console.log('Server started')});
+>>>>>>> cd577777b80b883112a63d5bde35e56ba39c6362

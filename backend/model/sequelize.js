@@ -3,6 +3,7 @@ const {Sequelize,DataTypes} = require("sequelize");
 //definition des informations sur ma base de données
 const sequelize = new Sequelize(
 <<<<<<< HEAD
+<<<<<<< HEAD
     'projetrainbowsixesl',
     'root',
     'root',
@@ -13,13 +14,18 @@ const sequelize = new Sequelize(
         timestamps: false
     }
 =======
+=======
+>>>>>>> cd577777b80b883112a63d5bde35e56ba39c6362
     'progwebserveur',
     'root',
     '',
     {
     	host:'localhost',
     	dialect:'mysql'
+<<<<<<< HEAD
 >>>>>>> 694fc29adb7e43c473e7bef14a09edb1279f830c
+=======
+>>>>>>> cd577777b80b883112a63d5bde35e56ba39c6362
     }
 	);
 //verification de la connexion avec la base de données
@@ -31,10 +37,14 @@ const sequelize = new Sequelize(
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //création de ma table dans ma base de données
 =======
 //création de ma table users dans ma base de données
 >>>>>>> 694fc29adb7e43c473e7bef14a09edb1279f830c
+=======
+//création de ma table dans ma base de données
+>>>>>>> cd577777b80b883112a63d5bde35e56ba39c6362
  const users = sequelize.define('users',{
  	idUSer:{
  		type: DataTypes.INTEGER,
@@ -68,6 +78,7 @@ const sequelize = new Sequelize(
  	isAdmin:{
  		type:DataTypes.TINYINT,
   
+<<<<<<< HEAD
 <<<<<<< HEAD
  	}
  })
@@ -127,6 +138,8 @@ const sequelize = new Sequelize(
 
 
 =======
+=======
+>>>>>>> cd577777b80b883112a63d5bde35e56ba39c6362
  	},
 
   photoProfil : {
@@ -140,7 +153,10 @@ const sequelize = new Sequelize(
     allowNull : false,
   }
  })
+<<<<<<< HEAD
 >>>>>>> 694fc29adb7e43c473e7bef14a09edb1279f830c
+=======
+>>>>>>> cd577777b80b883112a63d5bde35e56ba39c6362
 
  sequelize.sync().then(()=>{
  	console.log('Users table created successfully');
@@ -149,8 +165,13 @@ const sequelize = new Sequelize(
  })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = users;
 module.exports = operateur;
 =======
 module.exports = users;
 >>>>>>> 694fc29adb7e43c473e7bef14a09edb1279f830c
+=======
+module.exports = users;
+//module.exports = operateur;
+>>>>>>> cd577777b80b883112a63d5bde35e56ba39c6362
