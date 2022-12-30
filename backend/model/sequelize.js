@@ -73,4 +73,4 @@ const sequelize = new Sequelize(
  })
 
 module.exports = users;
-module.exports = operateur;
+//module.exports = operateur;
