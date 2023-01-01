@@ -1,12 +1,8 @@
 const express = require('express')
 const operateur = require('./model/sequelize');
-const express = require('express');
 const bodyParser = require('body-parser');
 require("dotenv").config();
 require("./auth/passport");
-
-
-
 
 const app = express();
 
@@ -35,9 +31,6 @@ app.get('/hello', async (req, res) => {
   res.send('hello')
 });
 
-app.listen(3000);
-
-
 
 app.use(bodyParser.urlencoded ({ extended : false}));
 app.use(bodyParser.json());
@@ -57,6 +50,7 @@ app.use('/',require('./secure-routes/modif-profil'));
 //notre service de gestion des utilisateurs
 app.use('/',require('./secure-routes/gestion-users'));
 
+app.listen(3000);
 
 
 //le port de notre service est 3000

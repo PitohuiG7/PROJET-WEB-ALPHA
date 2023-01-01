@@ -9,6 +9,8 @@ const router = express.Router();
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
+  console.log(req.body);
+
   // je verifie si l'utlisateur existe
   const userWithEmail = await users.findOne({ where: { email : email } }).catch(
     (err) => {
